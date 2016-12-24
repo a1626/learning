@@ -1,0 +1,22 @@
+{
+  "name": "slick-Tester",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "Test multiple slick-carousel in one page",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slick-carousel": "^1.5.9",
+    "iron-icons": "polymerElements/iron-icons#^1.1.3"
+  }
+}

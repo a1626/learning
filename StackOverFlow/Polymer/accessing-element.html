@@ -1,0 +1,87 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="paper-badge/paper-badge.html">
+<dom-module id="accessing-element">
+    <template>
+        <style>
+            .myDiv{
+                width: 250px;
+                height: 40px;
+                border: 1px solid black;
+                margin-bottom: 30px;
+            }
+        </style>
+        <div id="insideBadge" class="myDiv">badge inside element</div>
+        <paper-badge for="insideBadge" id="insideOwnDom" label="1"></paper-badge>
+        <div on-tap="_changeLabel">Click me to change all labels</div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'accessing-element',
+        _changeLabel: function(){
+            this.$.insideOwnDom.label= 2;
+            
+            var docLevel= document.getElementById('inSameDoc');
+            docLevel.label= 3;
+            
+            var anotherElement= document.querySelector('another-element');
+            var ele= Polymer.dom(anotherElement.root);
+            var badge= ele.getEffectiveChildNodes()[3];
+            badge.label= 4;
+            // or
+//            anotherElement.label= 4;
+        }
+    })
+</script>
+
+
+<dom-module id="another-element">
+    <template>
+        <style>
+            .myDiv{
+                width: 250px;
+                height: 40px;
+                border: 1px solid black;
+                margin-bottom: 30px;
+            }
+        </style>
+        <div id="anotherELementsBadge" class="myDiv">badge inside another element</div>
+        <paper-badge id="anotherElementsDom" for="anotherELementsBadge" label="{{label}}"></paper-badge>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'another-element',
+        properties:{
+            label:{
+                type: Number,
+                value: 1
+            }
+        }
+    })
+</script>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Change labels</title>
+    </head>
+    <body>
+        <style>
+            .myDiv{
+                width: 250px;
+                height: 40px;
+                border: 1px solid black;
+                margin-bottom: 30px;
+            }
+        </style>
+        <div style="height:100px;"></div>
+        <div id="docBadge" class="myDiv">badge at same doc level</div>
+        <paper-badge for="docBadge" id="inSameDoc" label="1"></paper-badge>
+        <another-element></another-element>
+        <accessing-element></accessing-element>
+    </body>
+</html>

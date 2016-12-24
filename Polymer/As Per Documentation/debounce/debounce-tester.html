@@ -1,0 +1,82 @@
+<link rel="import" href="./bower_components/paper-input/paper-input.html">
+ 
+ <!--
+ This element shows the usage of debounce method of polymer. Debounce method is use to colaborate 
+ muliple calls made within certain time limit into one single call.
+ 
+ Example
+     
+     <debounce-tester></debounce-tester>
+     
+ @demo ./demo/index.html
+ -->
+ <dom-module id="debounce-tester">
+  <template strip-whitespace>
+    <style></style>
+    <paper-input label="debounced input" value="{{debouncedValue}}"></paper-input>
+    <paper-input label="normal input" value="{{normalValue}}"></paper-input>
+	{{normalValue}}
+    <div>Debounced Array:</div>
+    <template is="dom-repeat" items="{{debouncedArray}}" as="item"> {{item}} </template>
+    <div>Normal Array:</div>
+    <template is="dom-repeat" items="{{normalArray}}" as="item"> {{item}} </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'debounce-tester',
+    properties:{
+      
+      /**
+       * This value will use debounce method
+       */
+      debouncedValue:{
+        type:String,
+        observer:'_debouncedValueChanged'
+      },
+      
+      /**
+       * This value will not be use debounce method
+       */
+      normalValue:{
+        type:String,
+        observer:'_normalValueChanged'
+      },
+      /**
+       * Array contains all the values for which debounce method made call
+       */
+      debouncedArray:{
+        type:Array,
+        value:[]
+      },
+      
+      /**
+       * Array contains all the values for which normal method made call
+       */
+      normalArray:{
+        type:Array,
+        value:[]
+      },
+      
+    },
+
+    /**
+     * Observer on debounced value
+     */
+    _debouncedValueChanged:function(newVal){
+      this.debounce('job',function(){
+        console.log("debounced value changed");
+        this.push('debouncedArray',newVal);
+      },500);
+    },
+    
+    /**
+     * Observer on normal value
+     */
+    _normalValueChanged:function(newVal){
+      console.log("normal value changed");
+      this.push('normalArray',newVal);
+    },
+    
+  })
+</script>

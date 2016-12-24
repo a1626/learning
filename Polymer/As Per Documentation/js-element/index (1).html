@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="bower_components/polymer/polymer.html"/>
+		<script>
+			jsElement=Polymer({
+				is:"js-element",
+				
+				//extends:'input',
+				
+				hostAttributes: {
+				  'string-attribute': 'Value',
+				  'boolean-attribute': true,
+				  tabindex: 0
+				},//this results in <js-element string-attribute="Value" boolean-attribute tabindex="0"></js-element> refer https://www.polymer-project.org/1.0/docs/devguide/properties.html#attribute-serialization
+				
+				//callback
+				created:function(){
+					this.textContent="Helloooo..."+this.b;//this.b y undefined
+					this.style.border = '1px solid red';
+					console.log(this.localName + '#' + this.id + ' was created');
+				},
+
+				ready: function() {
+					console.log(this.localName + '#' + this.id + ' has local DOM initialized');
+				},
+
+				attached: function() {
+					console.log(this.localName + '#' + this.id + ' was attached');
+				},
+
+				detached: function() {
+					console.log(this.localName + '#' + this.id + ' was detached');
+				},
+
+				attributeChanged: function(name, type) {
+					console.log(this.localName + '#' + this.id + ' attribute ' + name +
+					  ' was changed to ' + this.getAttribute(name));
+				},
+				
+				//provide add variable property to constructor
+				factoryImpl:function(a,b){
+					this.b=b;
+					console.log(this.b);
+				}
+			});
+			
+			//working without both if no variable required
+			var element=new jsElement(2,"aaa");
+			element.created();
+			//or
+			//var element=document.createElement('js-element');
+			window.onload=function(){
+				document.getElementById("body1").appendChild(element);
+			}
+		</script>
+		<link rel="import" href="bower_components/iron-icon/iron-icon.html"/>
+	</head>
+	<body>
+		<div id="body1"></div>
+		<!--To run js-element tag comment extends input -->
+		<!-- <js-element>yo</js-element> -->
+		<!-- <input is="js-element"></input> -->
+		<iron-icon src="2.jpg"></iron-icon>
+	</body>
+</html>

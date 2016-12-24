@@ -1,0 +1,19 @@
+{
+  "name": "Experimental",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-elements": "^1.0.10",
+    "paper-elements": "^1.0.7",
+      "app-elements":"#"
+  }
+}

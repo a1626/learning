@@ -1,0 +1,31 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="paper-input/paper-input.html">
+<dom-module id="input-suffix">
+    <template>
+        <style>
+             object {
+                height : 60px; 
+                width : 100px; 
+                position: absolute; 
+                right: -10px; 
+                margin-top: 3px;
+                cursor: pointer;
+            }
+        </style>
+        <paper-input class="border" label="Deine Email-Adresse" no-label-float>
+            <object suffix data="https://css-tricks.com/wp-content/uploads/2015/05/kiwi.svg" type="image/svg+xml" on-tap="_subscribeNewsletter">
+                <!--<img src="fallback.jpg" />-->
+            </object>
+        </paper-input>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'input-suffix'
+    })
+</script>
+
+
+<input-suffix></input-suffix>

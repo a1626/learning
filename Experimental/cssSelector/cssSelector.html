@@ -1,0 +1,54 @@
+
+ <dom-module id="polymer-component"> 
+  <template>
+    <div id="content" active$={{active}}>test</div>
+  </template>
+
+  <style>
+    :host {
+      width: 50px;
+      height: 50px;
+      color: blue;
+    }
+
+:host[active]{
+  color: yellow;
+}
+
+#content{
+  width: 50px;
+  height: 50px;
+}
+/*Example 1*/
+#content[active]{
+  color: red;
+}
+/*Example 2*/
+:host #content[active]{
+  color: green;
+}
+/*Example 3*/
+:host[active] > #content{
+  color: black;
+}
+/*Example 4*/
+:host (#content[active]){
+  color: palegoldenrod;
+}
+  </style>
+</dom-module>
+
+<script>
+Polymer({
+    is: "polymer-component",
+    properties: {
+      active: {
+        type: Boolean,
+				value:false,
+      }
+    }
+  });
+</script>
+
+
+<polymer-component active></polymer-component>

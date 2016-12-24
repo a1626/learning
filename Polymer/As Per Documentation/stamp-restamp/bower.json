@@ -1,0 +1,24 @@
+{
+  "name": "stamp-restamp",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "Testing stamping and re-stamping of elements inside dom-if",
+  "main": "stamp-restamp",
+  "keywords": [
+    "stamp",
+    "dom-if",
+    "restamp",
+    "dynamic",
+    "selector"
+  ],
+  "license": "MIT",
+  "homepage": "stamp-restamp.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

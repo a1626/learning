@@ -1,0 +1,21 @@
+<dom-module id="custom-event">
+  <template>
+    <style>
+      #inner{
+        width: 200px;
+        height: 50px;
+        border: 1px solid blue;
+        margin-top: 15px;
+      }
+    </style>
+    <div id="inner" on-tap="firing">I'll fire a custom event</div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'custom-event',
+    firing:function(){
+      this.fire('my-event',{value:"Yeah! i'm being listened"}) //fire is the method which is use to fire custom events, second parameter can also be null if no data is required
+    }
+  })
+</script>

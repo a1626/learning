@@ -1,0 +1,25 @@
+
+<dom-module id='computed-style'>
+	<template>
+		<style>
+			:host{
+				--my-style:red;
+			}
+			.test{
+				color: var(--my-style);
+			}
+		</style>
+		<div class='test' on-tap='getStyle'>Hello</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'computed-style',
+		getStyle:function(){
+			console.log(this.getComputedStyleValue('--my-style'));
+		}
+	})
+</script>
+
+
+<computed-style></computed-style>

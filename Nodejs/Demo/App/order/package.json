@@ -1,0 +1,17 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "description": "Parallel request and Rest Api First",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Abhishek",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}

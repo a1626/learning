@@ -1,0 +1,23 @@
+<dom-module id="annotated-listener">
+  <template>
+    <style>
+      .inner{
+        width: calc(200px);
+        height: 50px;
+        border: 1px solid blue;
+        margin-top: 15px;
+      }
+    </style>
+    <!-- As up is the name of the event annotation will be on-up -->
+    <div class="inner" on-up='upEventOccurs'>Tap me for different alert</div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'annotated-listener',
+    upEventOccurs:function(e){
+//      detail Object in event contains x and y co-ordinate of event
+      alert('up event occurs at x:'+e.detail.x+' y:'+e.detail.y);
+    }
+  })
+</script>

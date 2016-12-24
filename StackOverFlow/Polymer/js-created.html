@@ -1,0 +1,38 @@
+<base href="https://polygit.org/components/">
+ <script src="wecomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="polymer/polymer.html">
+   <dom-module id="custom-element"> 
+    <template>
+        <h1>I expect to be green</h1>
+    </template>
+    <script>
+        Polymer({
+            is: 'custom-element',
+            properties: {
+                color: {
+                    type: String,
+                    value: 'red'
+                }
+            },
+            attached: function() {
+                alert(customElement);
+                this.style.color = this.color;
+            }
+        });
+    </script>
+</dom-module>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var customElement = document.createElement('custom-element');
+            customElement.color = 'green';
+            document.body.appendChild(customElement);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <div slot="special">selected div</div>
+            <div>rejected div</div>
+        </header>
+
+
+        <script>
+            const header = document.querySelector('header');
+            const shadowRoot = header.attachShadow({mode: 'open'});
+            shadowRoot.innerHTML = '<slot name="special"></slot>'
+        </script>
+    </body>
+</html>

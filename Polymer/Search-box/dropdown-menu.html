@@ -1,0 +1,39 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
+<link rel="import" href="bower_components/iron-menu-behavior/iron-menu-behavior.html">
+<link rel="import" href="bower_components/paper-styles/default-theme.html">
+<link rel="import" href="bower_components/paper-menu/paper-menu-shared-styles.html">
+<link rel="import" href="dropdown-menu-behavior.html"/>
+
+<dom-module id="dropdown-menu">
+  <template>
+    <style include="paper-menu-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+        padding: 8px 0;
+        background: var(--paper-menu-background-color, --primary-background-color);
+        color: var(--paper-menu-color, --primary-text-color);
+        @apply(--paper-menu);
+      }
+    </style>
+
+    <div class="selectable-content">
+      <content></content>
+    </div>
+  </template>
+
+  <script>
+    //(function() {
+      Polymer({
+        is: 'dropdown-menu',
+        behaviors: [
+          Polymer.IronMenuBehavior,
+        ],
+        _onKeyUp:function(event){
+        	console.log('here');
+        }
+      });
+    //})();
+  </script>
+</dom-module>

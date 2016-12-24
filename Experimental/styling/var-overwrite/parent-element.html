@@ -1,0 +1,27 @@
+<script>
+	window.Polymer={
+		useNativeCSSProperties:true
+	}
+</script>
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="child-element.html">
+<link rel="import" href="style-overwriter.html">
+
+<dom-module id="parent-element">
+	<template>
+		<style>
+			child-element{
+				--my-color:var( --dubious-color);
+			}
+		</style>
+		<child-element></child-element>
+	</template>
+</dom-module>*
+<script>
+	Polymer({
+		is:'parent-element'
+	})
+</script>
+
+
+<parent-element></parent-element>

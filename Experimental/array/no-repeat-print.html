@@ -1,0 +1,22 @@
+
+<dom-module id="no-repeat">
+	<template>
+		{{myArray}}
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'no-repeat',
+		properties:{
+			myArray:{
+				type:Array,
+				value:function(){
+					return ['val1','val2','val3']
+				}
+			}
+		}
+	})
+</script>
+
+
+<no-repeat></no-repeat>

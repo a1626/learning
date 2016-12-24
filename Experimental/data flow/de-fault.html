@@ -1,0 +1,23 @@
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="de-fault">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'de-fault',
+        properties:{
+            myObj:{
+                type:Object,
+                value:function(){return {test1:'test1'}}
+            }
+        },
+        ready: function(){
+            alert("My Object"+this.myObj);
+        },
+        attached: function(){
+            alert("My Object"+this.myObj);
+        },
+    })
+</script>

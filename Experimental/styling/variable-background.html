@@ -1,0 +1,26 @@
+
+<dom-module id="variable-background">
+	<template>
+		<style>
+			:host{
+				--image-url:url(http://www.freedigitalphotos.net/images/img/homepage/87357.jpg);
+				background-image: var(--image-url);
+				display: block;
+				height: 100px;
+			}
+		</style>
+		<div on-tap='changeBackground'>Tap me</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'variable-background',
+		changeBackground:function(){
+			var obj={'--image-url': 'url(http://mediafiles.allaboutsymbian.com/808/zeiss/g.jpg)'};
+			this.updateStyles(obj);
+		}
+	})
+</script>
+
+
+<variable-background></variable-background>

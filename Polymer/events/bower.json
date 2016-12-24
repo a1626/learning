@@ -1,0 +1,28 @@
+{
+  "name": "events",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "covers event retargeting, listening and custom events",
+  "main": "",
+  "keywords": [
+    "events",
+    "listening",
+    "custom",
+    "retargeting",
+    "retargetting"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.6.0",
+    "paper-input": "^1.1.15"
+  }
+}

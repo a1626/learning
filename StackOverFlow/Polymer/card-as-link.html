@@ -1,0 +1,39 @@
+<link rel="import" href="https://polygit.org/components/paper-card/paper-card.html">
+<link rel="import" href="https://polygit.org/components/paper-button/paper-button.html">
+<dom-module id="card-as-link">
+	<template>
+		<style>
+			a{
+				color:pink;
+				text-decoration: none;
+			}
+			
+			a:visited{
+				color:yellow;
+				text-decoration: none;
+			}
+		</style>
+<!--		<a href="#link" tabindex="-1">-->
+			<paper-card image="./src/app/bg.png" alt="picture" on-tap="_tapped">
+				<div class="card-content">
+					<div>Lorem</div>
+					<p>Lorem ipsum</p>
+				</div>
+				<div class="card-actions">
+					<paper-button>Reserve</paper-button>
+				</div>
+			</paper-card>
+<!--		</a>-->
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'card-as-link',
+		_tapped:function(e){
+			console.log(e)
+		}
+	})
+</script>
+
+
+<card-as-link></card-as-link>

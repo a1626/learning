@@ -1,0 +1,28 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="paper-icon-button/paper-icon-button.html">
+<link rel="import" href="paper-dialog/paper-dialog.html">
+<link rel="import" href="iron-icons/iron-icons.html">
+<link rel="import" href="iron-icon/iron-icon.html">
+<dom-module id="icon-button">
+    <template>
+        <style></style>
+        <paper-icon-button icon="close" id="closeBtn" style="color:red"></paper-icon-button>
+        <paper-dialog id="dialog">
+        <iron-icon icon="close"></iron-icon>
+        <paper-icon-button icon="close" id="closeBtn"></paper-icon-button>
+    </paper-dialog>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'icon-button',
+        attached: function(){
+            this.$.dialog.open();
+        }
+    })
+</script>
+
+
+<icon-button></icon-button>

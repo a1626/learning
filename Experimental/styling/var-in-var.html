@@ -1,0 +1,23 @@
+
+<link rel="import" href="../App-theme.html">
+<dom-module id="embedded-var">
+	<template>
+		<style>
+			div{
+				color:var(--my-default-color,--default-color);
+			}
+		</style>
+		<div>
+			
+		What is my color?
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'embedded-var'
+	})
+</script>
+
+
+<embedded-var></embedded-var>

@@ -1,0 +1,66 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<dom-module id="poly-props">
+	<template> <!-- Template defines what what will be part of cutom element like here Hello will never be visible as a part of this element -->
+		{{userName}}
+	</template>
+	Hello
+</dom-module>
+<script>
+	Polymer({
+		is:"poly-props",
+		properties:{
+			userName:String,
+			username:{
+				type:Boolean,
+				value:false, //always initialize as there is no way to set it to false from markup
+				observer:'_testObserver'
+			},
+			user:{
+				type:Object,
+				value:function(){
+					return {"name":"Shek", "age":25,"qualities":{}};
+				},
+			},
+			users:{
+				type:Array,
+				value:function(){
+					return [];
+				}
+			}
+		},
+		observers:[//observing change to muliple props
+			'_nameComparator(userName,user.name)',//observer on sub prop. Works
+			//'_arrayMutationObserver(users.splices)',//not working bugged
+			'_subPropObserver(user.qualities.*)'
+		],
+		_subPropObserver:function(qualities){
+			console.log("path:"+qualities.path);
+			console.log("base:"+JSON.stringify(qualities.base));
+			//console.log("base1:"+Polymer.Collection.get(qualities.base));
+			//console.log("index:"+qualities.base.indexOf(Polymer.Collection.get(qualities.base).getItem(key)));
+			console.log("value:"+JSON.stringify(qualities.value));
+		},
+		_nameComparator:function(userName,name){
+			console.log("here");
+			if(userName==name)
+				console.log("Both the names are same");
+			else
+				console.log("We have two different users");
+		},
+		_arrayMutationObserver(user){
+			console.log(user);
+			user.indexSplices.forEach(function(s){
+				//s.removed.forEach
+			})
+		},
+		_testObserver:function(newValue,oldValue){
+			console.log("old Value:"+oldValue+"\nnew Value:"+newValue);
+		},
+		ready:function(){
+			console.log(this.username);
+			this.username=false;
+			this.push('users',{"name":"abhishek"});
+			this.user.qualities={"gender":"male"};
+		}
+	});
+</script>

@@ -1,0 +1,22 @@
+<link rel="import" href="bower_components/paper-date-picker/paper-date-picker.html">
+<script src="bower_components/moment/moment.js"></script>
+<dom-module id="date-changer">
+	<template>
+		<paper-date-picker date={{date}}></paper-date-picker>
+		<div on-tap='_changeDate'>Change date</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'date-changer',
+		_changeDate:function(){
+			var currentDate = this.date;
+    var nextDay =  moment(currentDate).add(1, 'day');
+			alert(nextDay);
+			this.set('date',nextDay);
+		}
+	})
+</script>
+
+
+<date-changer></date-changer>

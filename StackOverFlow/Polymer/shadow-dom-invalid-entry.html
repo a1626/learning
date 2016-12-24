@@ -1,0 +1,31 @@
+<!--
+http://stackoverflow.com/questions/41308885/is-there-an-alternative-to-declaring-a-slot-name-in-light-dom/41309812?noredirect=1#41308885
+-->
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="my-element">
+    <template>
+        <style></style>
+        <content select='table'></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'my-element'
+    })
+</script>
+
+
+<my-element>
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+        </tr>
+    </table>
+</my-element>

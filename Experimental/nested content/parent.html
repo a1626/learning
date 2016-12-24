@@ -1,0 +1,17 @@
+<link rel="import" href="child.html">
+<dom-module id="parent-element">
+	<template>
+		<span>Parent Open</span>
+		<child-element>
+			child open
+			<content select='.test'></content>
+			child Closed
+		</child-element>
+		<span>Parent Closed</span>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'parent-element'
+	})
+</script>

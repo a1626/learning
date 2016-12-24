@@ -1,0 +1,48 @@
+<link rel="import" href="../git-work/gravity/client/bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../git-work/gravity/client/bower_components/paper-button/paper-button.html">
+
+<dom-module id="multi-toasts">
+  <template>
+    <paper-button on-click="_openToast1">Open Toast1</paper-button>
+    <paper-button on-click="_openToast2">Open Toast2</paper-button>
+    <paper-button on-click="_openToast3">Open Toast3</paper-button>
+    <paper-toast id="toast1" text="Hello world!"></paper-toast>
+    <paper-toast id="toast2" text="Hello world!"></paper-toast>
+    <paper-toast id="toast3" text="Hello world!"></paper-toast>
+    <template is="dom-if" if={{call}}>
+      <multi-toasts></multi-toasts>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is:'multi-toasts',
+      properties:{
+        openTostList:{
+          type:Array,
+          value:[],
+          observer:'_toastChanged'
+        }
+      },
+      
+      _openToast1:function(){
+        this.$.toast1.open();
+        this.push('openTostList','toast1');
+        this.call=true;
+      },
+      
+      _openToast2:function(){
+        this.$.toast2.open();
+        this.push('openTostList','toast2');
+      },
+      
+      _openToast3:function(){
+        this.$.toast3.open();
+        this.push('openTostList','toast3');
+      },
+      
+      _toastChanged:function(newValue,oldValue){
+        console.log(newValue,oldValue);
+      }
+    })
+  </script>
+</dom-module>

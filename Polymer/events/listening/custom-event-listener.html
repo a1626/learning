@@ -1,0 +1,18 @@
+<link rel="import" href="../firing/custom-event.html">
+ <dom-module id="custom-event-listener">
+  <template>
+    <style></style>
+    <custom-event on-my-event="_myListen"></custom-event>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'custom-event-listener',
+/*    listeners:{ //you can also use listener object instead of on-event attribute
+      'new-event':'listen'
+    },*/
+    _myListen:function(e,detail){
+      alert(detail.value+"from Polymer Element");
+    },
+  })
+</script>

@@ -1,0 +1,22 @@
+<link rel="import" href="bower_components/polymer/polymer.html"></link>
+<link rel="import" href="bower_components/paper-button/paper-button.html"></link>
+
+<dom-module id="first-element">
+	<template>
+		<paper-button on-tap="{{_tapped("try")}}" raised>trying</paper-button>
+	</template>
+</dom-module>
+<script>
+Polymer:({
+	is:"first-element",
+	properties:{
+		_tapped:function(val){
+			console.log(val);
+		}
+	},
+	ready:function(){
+		console.log("here");
+	}
+});
+
+</script>

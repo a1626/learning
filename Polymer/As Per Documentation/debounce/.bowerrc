@@ -1,0 +1,7 @@
+{
+	"registry": "http://10.188.25.62:9004",
+	"timeout": 300000,	
+		"proxy":"http://Nithin_Saji:Winston1984@indblrb06intpxy02.ad.infosys.com:80",
+    "https-proxy":"http://Nithin_Saji:Winston1984@indblrb06intpxy02.ad.infosys.com:80",
+	"no-proxy":"10.188.25.62:9004"
+}

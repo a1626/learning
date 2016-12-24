@@ -1,0 +1,29 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
+<dom-module id='ajax-response'>
+	<template>
+		<iron-ajax auto on-request='onResquest' on-error='onError' url='/listResponse.json' on-response='onResponse' last-response='{{response}}'></iron-ajax>
+		{{response}}
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'ajax-response',
+		onResponse:function(e){
+			e.detail.response.forEach(function(data){
+				console.log(e,this);
+
+			}.bind(this));
+		},
+		onRequest:function(e){
+			console.log(e,this);
+		},
+		onError:function(e){
+			console.log(e,this);
+		},
+		ready:function(){
+			console.log('hi');
+		}
+	});
+</script>
+<ajax-response></ajax-response>

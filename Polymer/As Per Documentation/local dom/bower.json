@@ -1,0 +1,21 @@
+{
+  "name": "local-dom",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "learning local dom",
+  "main": "local-dom.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.3.0"
+  }
+}

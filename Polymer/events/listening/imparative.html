@@ -1,0 +1,30 @@
+<dom-module id="imparative-listener">
+  <template>
+    <style>
+      #inner{
+        width: 200px;
+        height: 50px;
+        border: 1px solid blue;
+        margin-top: 15px;
+      }
+    </style>
+    <div id="inner">I've imparative listener attached</div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'imparative-listener',
+    
+    //keeping it in attached to make sure elements with their own shadow root are attached
+    attached:function(){
+      this.listen(this.$.inner,'track','trackDetails'); // For more details on method check https://www.polymer-project.org/1.0/docs/api/Polymer.Base#method-listen
+    },
+    
+    //all the listener functions have event as first parameter and detail (event.detail) as second parameter to the function
+    trackDetails:function(e,detail){
+      if(detail.state=='end'){
+        alert('Track distance x:'+detail.dx+' y:'+detail.dy);// For more details on track event check https://www.polymer-project.org/1.0/docs/devguide/gesture-events
+      }
+    }
+  })
+</script>

@@ -1,0 +1,25 @@
+{
+  "name": "deep-array",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "Testing deep arrays and dom-repeat in dom-if",
+  "main": "deep-array.html",
+  "keywords": [
+    "dom-repeat",
+    "dom-if",
+    "array",
+    "deep",
+    "multiple",
+    "dom-repeat"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

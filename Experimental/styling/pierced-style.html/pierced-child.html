@@ -1,0 +1,15 @@
+<dom-module id="pierced-child">
+    <template>
+        <style>
+            .input {
+                --paper-input-container-color: var(--my-color,red);
+            }
+        </style>
+        <paper-input class="input" label='hi! What is my color?'></paper-input>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'pierced-child'
+    })
+</script>

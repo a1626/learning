@@ -1,0 +1,22 @@
+{
+  "name": "js-element",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "element made using js",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.3.0",
+    "iron-icon": "polymerElements/iron-icon#^1.0.7"
+  }
+}

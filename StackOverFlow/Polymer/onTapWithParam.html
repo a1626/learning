@@ -1,0 +1,26 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="./bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+<dom-module id='my-element'>
+	<template>
+		<a> <span>Parent Link 1</span>
+			<paper-icon-button icon="expand-more" role="button" on-tap={{_expandClicked(item)}}></paper-icon-button>
+		</a>
+		<iron-collapse id="collapse1"> <a class="link" href="/view2">Sport F</a> <a class="link" href="/view3">Child C</a> </iron-collapse>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'my-element',
+		properties:{
+			item:'hello'
+		},
+		_expandClicked:function(id){
+			console.log(id);
+		}
+	})
+</script>
+
+
+<my-element></my-element>

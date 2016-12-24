@@ -1,0 +1,155 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="./bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="./bower_components/paper-styles/shadow.html">
+<link rel="import" href="./bower_components/paper-material/paper-material.html">
+<link rel="import" href="./app-theme.html">
+<link rel="import" href="./hoverbox-icons.html">
+
+<dom-module id="icon-hoverbox">
+  <template>
+    <style>
+      :host{
+        display: inline-block;
+      }
+
+      #iconContainer{
+        display: inline-block;
+        text-align: center;
+      }
+
+      #arrow{
+        position: absolute;
+        fill:var(--my-color,--default-color);
+      }
+      
+      #hoverBox{
+        position: absolute;
+        min-width: 300px;
+        background: var(--my-color,var(--default-color));
+      }
+      /*    add shdow to arrow icon.
+      material expose elevation keep in sync with icon 
+      only label demo
+      */
+    </style>
+
+    <div id="iconContainer">
+      <iron-icon id="icon" icon={{icon}}></iron-icon>
+      <div>
+        <content select="#label"></content>
+      </div>
+    </div>
+    <iron-icon id="arrow" icon="{{_arrowIcon}}"></iron-icon>
+    <paper-material id="hoverBox" elevation={{elevation}}>
+      <content select="*"></content>
+    </paper-material>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'icon-hoverbox',
+
+    behaviors:[Polymer.IronResizableBehavior],
+
+    properties:{
+      elevation:{
+        type:Number,
+        value:1
+      },
+      icon:{
+        type:String,
+        value:"",
+        observer:'_changeDisplay'
+      },
+
+      boxDirection:{
+        type:String,
+        notify:true,
+        value:'bottom'
+      },
+      
+      boxPosition:{
+        type:String,
+        notify:true,
+        value:'center'
+      },
+
+      _arrowIcon:{
+        type:String,
+        computed:'_computeArrow(boxDirection)'
+      }
+    },
+
+    listeners:{
+      'iron-resize':'_updatePosition'
+    },
+
+    _updatePosition:function(){
+      var iconContainer=this.$.iconContainer.getBoundingClientRect();
+      var arrowPos,
+          label = document.getElementById('label');
+      console.log(iconContainer,label);
+      if(this.boxDirection=='bottom'){
+        arrowPos = this.$.arrow.style.top=iconContainer.height - (this.$.arrow.offsetHeight*(2/5));
+        this.$.arrow.style.left= (iconContainer.width/2) - (this.$.arrow.offsetWidth/2);
+      }else if(this.boxDirection=='top'){
+        arrowPos = this.$.arrow.style.bottom = iconContainer.height - (this.$.arrow.offsetHeight*(2/5));
+        this.$.arrow.style.left= (iconContainer.width/2) - (this.$.arrow.offsetWidth/2);
+      }else if(this.boxDirection=='left'){
+        arrowPos = this.$.arrow.style.right = iconContainer.width - (this.$.arrow.offsetWidth*(2/5));
+        if(label && this.icon){
+          this.$.arrow.style.top=iconContainer.height-(label.getBoundingClientRect().height)/2 - (this.$.arrow.offsetHeight/2)
+        }else{
+          this.$.arrow.style.top= (iconContainer.height/2) - (this.$.arrow.offsetHeight/2);
+        }
+      }else{
+        arrowPos = this.$.arrow.style.left = iconContainer.width - (this.$.arrow.offsetWidth*(1/5));
+        if(label && this.icon){
+          this.$.arrow.style.top=iconContainer.height-(label.getBoundingClientRect().height)/2 - (this.$.arrow.offsetHeight/3)
+        }else{
+          this.$.arrow.style.top= (iconContainer.height/2) - (this.$.arrow.offsetHeight/3);
+        }
+      }
+      var arrowRect = this.$.arrow.getBoundingClientRect();
+      this._updateBoxPosition(arrowPos,arrowRect,iconContainer);
+    },
+    
+    _updateBoxPosition:function(arrowPos,arrowRect,iconContainer){
+      var hoverBox = this.$.hoverBox.getBoundingClientRect();
+      if(this.boxPosition==='start'){
+        this.$.hoverBox.style.top = arrowPos + (3/5)*arrowRect.height;
+        this.$.hoverBox.style.left = (iconContainer.width/2) - hoverBox.width/6 ;
+      }else if(this.boxPosition==='end'){
+        this.$.hoverBox.style.top = arrowPos + (3/5)*arrowRect.height;
+        this.$.hoverBox.style.left = (iconContainer.width/2) - hoverBox.width*(5/6) ;
+      }else{
+        this.boxPosition='center';
+        this.$.hoverBox.style.top = arrowPos + (3/5)*arrowRect.height;
+        this.$.hoverBox.style.left = (iconContainer.width/2) - hoverBox.width/2 ;
+      }
+    },
+
+    _changeDisplay:function(newVal){
+      if(newVal){
+        this.$.icon.style.display="";
+      }else{
+        this.$.icon.style.display="none";
+      }
+    },
+
+    _computeArrow:function(boxDirection){
+      if(boxDirection==='top'){
+        return 'hover:caret-bottom'
+      }else if(boxDirection==='left'){
+        return 'hover:caret-right'
+      }else if(boxDirection==='right'){
+        return 'hover:caret-left'
+      }else{
+        this.boxDirection='bottom';
+        return 'hover:caret-top'
+      }
+    }
+  })
+</script>

@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <base href="https://polygit.org/components/">
+    <script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="polymer/polymer.html">
+</head>
+<body>
+    <my-element></my-element>
+    <my-element></my-element>
+    <my-element></my-element>
+    <my-element></my-element>
+    <div onclick="changeValue()"> click me to change value</div>
+    <script>
+        function changeValue(){
+        glob = "new Value";
+            
+        }
+    </script>
+</body>
+</html>
+   
+
+   
+   
+   <dom-module id="my-element">
+    <template>
+        <style>
+            :host{
+                display: block;
+            }
+        </style>
+        click me to check the value
+    </template>
+</dom-module>
+<script>
+    var glob = 'initial Value';
+    Polymer({
+        is:'my-element',
+        listeners:{
+            'tap':'_onTap'
+        },
+        _onTap:function(){
+            alert(glob);
+        }
+    });
+</script>

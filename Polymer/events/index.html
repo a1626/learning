@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
+    <script>window.Polymer = {
+      dom: 'shadow'};</script>
+    <link rel="import" href="./bower_components/polymer/polymer.html">
+    <link rel="import" href="listening/using-listeners-obj.html">
+    <link rel="import" href="listening/annotated-listener.html">
+    <link rel="import" href="listening/imparative.html">
+    <link rel="import" href="listening/custom-event-listener.html">
+    <link rel="import" href="listening/property-change-event.html">
+    <link rel="import" href="retargeting/event-retargeting.html">
+  </head>
+  <body>
+    <using-listeners-obj></using-listeners-obj>
+    <annotated-listener></annotated-listener>
+    <imparative-listener></imparative-listener>
+    <property-change-event></property-change-event>
+    
+    <!--As event bubbles by default we can also listen to event from custom-event-listener instead of custom-event-->
+    <custom-event-listener></custom-event-listener>
+    
+    <event-retargeting></event-retargeting>
+  </body>
+  <script>
+    document.querySelector('custom-event-listener').addEventListener('my-event',function(e){
+      console.log(e);
+      alert(e.detail.value+"from HTML");
+    });
+    
+    // Changing event details 
+    var targetEl = document.querySelector('event-retargeting');
+		normalizedEvent = Polymer.dom(event);
+		normalizedEvent.rootTarget = targetEl;
+		normalizedEvent.localTarget =targetEl;
+		normalizedEvent.path = [];
+		normalizedEvent.path.push(targetEl);
+		normalizedEvent.path.push(document.querySelector('body'));
+		normalizedEvent.path.push(document.querySelector('html')); 
+    
+    var el = document.querySelector('event-retargeting');
+		el.addEventListener('retarget-me',function(){
+      alert('new root target is: '+normalizedEvent.rootTarget.nodeName+"\nnew local target is: "+normalizedEvent.localTarget.nodeName+'\nnew path is: '+arrToString(normalizedEvent.path));
+		});
+
+    function arrToString(arr){
+      var retVal="";
+      arr.forEach(function(d){
+        retVal+= d.nodeName+",";
+      });
+      return retVal.substr(0,retVal.length-1);
+    }
+  </script>
+</html>

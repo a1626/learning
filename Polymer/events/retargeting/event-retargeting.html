@@ -1,0 +1,21 @@
+<dom-module id="event-retargeting">
+  <template>
+    <style> 
+      #inner{
+        width: 200px;
+        height: 50px;
+        border: 1px solid blue;
+        margin-top: 15px;
+      }
+    </style>
+    <div id="inner" on-tap="fireEvent">I'll fire a retargeted event</div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'event-retargeting',
+    fireEvent:function(){
+      this.fire('retarget-me',null);
+    }
+  })
+</script>

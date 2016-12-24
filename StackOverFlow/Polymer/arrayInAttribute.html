@@ -1,0 +1,20 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<dom-module id="my-element">
+	<template>
+		{{myArray}}
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'my-element',
+		properties:{
+			myArray:{
+				type:Array
+			}
+		}
+		
+	})
+</script>
+
+
+<my-element my-array='[{"key":"value"},{"key":"value"}]'></my-element>

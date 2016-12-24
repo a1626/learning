@@ -1,0 +1,22 @@
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="mark-up">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'mark-up',
+        properties:{
+            myObj:{
+                type:Object
+            }
+        },
+        ready: function(){
+            alert("My Object"+this.myObj);
+        },
+        attached: function(){
+            alert("My Object"+this.myObj);
+        },
+    })
+</script>

@@ -1,0 +1,31 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="repeat-completion">
+	<template>
+		<style></style>
+		<template is="dom-repeat" items="{{items}}" as="item" on-dom-change="_domComplete">
+			<div id$="num{{index}}">{{item}}</div>
+		</template>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'repeat-completion',
+		properties:{
+			items:{
+				type:Array,
+				value:function(){
+					return [1,2,3,4,5]
+				}
+			}
+		},
+		_domComplete:function(e){
+        if(e.returnValue)
+			     console.log(this.$$("#num1"));
+		}
+	})
+</script>
+
+
+<repeat-completion></repeat-completion>

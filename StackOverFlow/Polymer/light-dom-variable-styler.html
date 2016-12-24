@@ -1,0 +1,62 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.js"></script>
+
+<!--   way 1-->
+<!--
+<script>
+    window.Polymer={
+        lazyRegister:true,
+        useNativeCSSProperties:true
+    }
+</script>
+-->
+<link rel="import" href="paper-input/paper-input.html">
+<!--
+<dom-module id="light-dom">
+    <template>
+        <style>
+            #container ::slotted(paper-input) {
+                --paper-input-container-focus-color: #ddd;
+            }
+        </style>
+        <div id="container">
+            <slot></slot>
+        </div>
+    </template>
+</dom-module>
+-->
+<dom-module id="light-dom">
+    <template>
+        <style>
+            
+            :host{
+                --paper-input-container-focus-color: #ddd;
+                
+            }
+/*
+            #container ::content paper-input {
+            }
+*/
+        </style>
+        <div id="container">
+            <content></content>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'light-dom',
+        attached:function(){
+            this.customStyle['--paper-input-container-focus-color']= "#ddd";
+            this.updateStyles();
+        }
+        
+    })
+</script>
+
+
+
+
+<light-dom>
+    <paper-input label="hello"></paper-input>
+</light-dom>

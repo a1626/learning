@@ -1,0 +1,30 @@
+{
+  "name": "debounce-tester",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "POC on  instance method debounce",
+  "main": "debounce-tester.html",
+  "keywords": [
+    "polymer",
+    "debounce",
+    "instance"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0",
+    "paper-input": "^1.1.11"
+  },
+  "devDependencies": {
+    "iron-component-page": "^1.1.6",
+    "demo-snippet": "^1.0.0"
+  }
+}

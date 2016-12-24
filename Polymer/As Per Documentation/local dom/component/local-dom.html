@@ -1,0 +1,17 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<dom-module id="local-dom">
+	<template>
+		Hello <span id="xyz"></span>
+		<content id="cont" select="p"></content>
+	</template>
+	<script>
+		Polymer({
+			is:"local-dom",
+			ready:function(){
+				this.$.xyz.textContent=this.tagName;
+				console.log(this.$.xyz.textContent);
+				console.log(this.$$(cont));
+			}
+		});
+	</script>
+</dom-module>

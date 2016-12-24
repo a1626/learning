@@ -1,0 +1,27 @@
+{
+  "name": "Polymer",
+  "description": "mostly single file projects serving different stackoverflow questions",
+  "main": "",
+  "keywords": [
+    "polymer",
+    "stackoverflow",
+    "polymer-1.0"
+  ],
+  "authors": [
+    "a1626"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-elements": "^1.0.7",
+    "iron-elements": "^1.0.10",
+    "paper-date-picker": "bendavis78/paper-date-picker#^1.2.0"
+  }
+}

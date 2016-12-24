@@ -1,0 +1,26 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
+ <dom-module id="json-push-pull-element">
+  <template>
+    <style></style>
+    <iron-ajax auto
+      url='/jsonfile.json'
+      handle-as='json'
+      content-type='application/json'
+      on-response='handleresponse'
+      last-reponse='{{response}}'>
+      </iron-ajax>
+      {{response.test}}
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'json-push-pull-element',
+    handleresponse:function(){
+      console.log('hrer');
+    }
+  })
+</script>
+
+
+<json-push-pull></json-push-pull>

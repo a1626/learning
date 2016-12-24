@@ -1,0 +1,75 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<dom-module id="selectable-list">
+	<template>
+		<style is="custom-style" include="selectable-list-styles"></style>
+		<ul id="selectable-list">
+			<template is="dom-repeat" items="[[items]]" id="itemList">
+				<li class$="{{getSelectedClass(item, selectedValue)}}">
+					<template is="dom-if" if="{{isSelected(item,selectedValue)}}">
+						yes
+					</template>
+					<button type="button" on-click="selectItem">{{item.label}}</button>
+				</li>
+			</template>
+		</ul>
+	</template>
+
+	<script>
+		var SELECTED_CLASS = 'is-selected';
+
+		Polymer({
+
+			is: 'selectable-list',
+
+			properties: {
+				items: {
+					type: Array,
+					value: function() { return [{
+						"label": "Item 1",
+						"value": 0
+					},{
+						"label": "Item 2",
+						"value": 1
+					},{
+						"label": "Item 3",
+						"value": 2
+					}]}
+				},
+				selectedValue: {
+					type: Object,
+					notify: true,
+					reflectToAttribute: true
+				}
+			},
+
+			selectItem: function(event){
+				this.selectedValue = event.model.item.value;
+			},
+
+
+			/**
+       * check if a list item is selected
+       *
+       * @param {object} item
+       * @returns {boolean}
+       */
+			isSelected: function(item, selectedValue){
+				return item.value === selectedValue;
+			},
+
+
+			/**
+       * get selected class if item is selected
+       * @param {object} item
+       * @returns {string}
+       */
+			getSelectedClass: function(item, selectedValue){
+				return this.isSelected(item, selectedValue) ? SELECTED_CLASS : '';
+			}
+
+		});
+	</script>
+</dom-module>
+
+
+<selectable-list></selectable-list>

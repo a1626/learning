@@ -1,0 +1,54 @@
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<dom-module id="idle-fire">
+    <template>
+        <style></style>
+    </template>
+<script>
+    Polymer({
+        is: 'idle-fire',
+        properties: {
+            idlelimit: {
+                type: Number,
+                value: 10
+            }
+        },
+        attached: function() {
+            console.log(this.idlelimit);
+
+        }
+    });
+</script>
+</dom-module>
+
+<script>
+    var idleTime = 0;
+    $(document).ready(function () {
+        //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+        //Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            console.log(idleInterval, idleTime);
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+    });
+    function timerIncrement() {
+        idleTime = idleTime + 1;
+        console.log("tick (" + idleTime + ")");
+        if (idleTime >= 2) { // in minutes
+            console.log("Idle event fired!")
+        }
+    }
+</script>
+
+
+<idle-fire></idle-fire>

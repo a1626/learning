@@ -1,0 +1,21 @@
+{
+  "name": "poly-props",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "trying various features of properties",
+  "main": "poly-props",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.3.0"
+  }
+}

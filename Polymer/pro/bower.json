@@ -1,0 +1,22 @@
+{
+  "name": "pro",
+  "description": "",
+  "main": "index",
+  "moduleType": [],
+  "authors": [
+    "Abhishek"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#^1.2.4"
+  }
+}

@@ -1,0 +1,24 @@
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    window.Polymer={
+        dom:'shadow'
+    }
+</script>
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<script src="./bower_components/moment/min/moment.min.js"></script>
+<dom-module id="deprecated-moment">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'deprecated-moment',
+        ready: function(){
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a')); // December 15th 2016, 7:46:35 pm
+        }
+    })
+</script>
+
+
+<deprecated-moment></deprecated-moment>

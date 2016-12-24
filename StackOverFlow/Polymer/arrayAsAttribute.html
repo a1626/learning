@@ -1,0 +1,18 @@
+<script src="./bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<dom-module id='ajax-response'>
+	<template>
+		{{response}}
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'ajax-response',
+		properties:{
+			response:{
+				type:Array
+			}
+		}
+	});
+</script>
+<ajax-response response='[{"key":"value"},{"key":"value"}]'></ajax-response>

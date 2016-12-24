@@ -1,0 +1,11 @@
+{
+  "name": "importjs",
+  "version": "1.0.0",
+  "description": "simple prog to import and use func of another js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek",
+  "license": "ISC"
+}

@@ -1,0 +1,41 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+ <dom-module id="stamp-restamp">
+  <template>
+    <style></style>
+<!--    <template is="dom-if" if="{{bool}}">-->
+      <template id='repeat' is="dom-repeat" items="{{arr}}" as="item">
+        <div on-tap='reRender'>{{item}}</div>
+      </template>
+<!--    </template>-->
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'stamp-restamp',
+    properties:{
+      bool:{
+        type:Boolean,
+        value:true
+      },
+      arr:{
+        type:Array,
+        value:function(){
+          return [1,2];
+        }
+      }
+    },
+    listeners:{'dom-change':'test'},
+    reRender:function(){
+      this.bool=false;//will be found as item is attached but hidden(inline style display:none)
+    },
+    test:function(e){
+      console.log(e);
+      console.log(this.$$('#repeat')); 
+      console.log(this.querySelector('#repeat')); 
+      this.$$('#repeat').render();
+    }
+  })
+</script>
+
+
+<stamp-restamp></stamp-restamp>

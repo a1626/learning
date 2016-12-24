@@ -1,0 +1,32 @@
+<script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    window.Polymer={
+        dom:'shadow',
+        lazRegister:"max",
+        useNativeCSSProperties:true
+    };
+</script>
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="no-brackets-mixins">
+    <template>
+        <style>
+            :host{
+                --my-mixin:{
+                    color:red;
+                };
+            }
+            .myclass{
+                @apply --my-mixin;
+            }
+        </style>
+        <div class="myclass">red color</div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'no-brackets-mixins'
+    })
+</script>
+
+
+<no-brackets-mixins></no-brackets-mixins>

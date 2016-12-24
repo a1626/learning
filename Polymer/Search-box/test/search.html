@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<link rel="import" href="../search-box.html"></link>
+	</head>
+	<body>
+		<test-fixture id="search">
+			<template>
+				<search-box></search-box>
+			</template>
+		</test-fixture>
+		<script>
+			suite('<search-box>'function(){
+				var element;
+				setup(function(){
+					element=fixture('search');
+				});
+					
+				test('dummy Test',function(){
+					//Polymer.dom(element.root).querySelector('input').value="a";
+					assert.equal(element.listValue,true);
+				});
+			});
+		</script>
+	</body>
+</html>

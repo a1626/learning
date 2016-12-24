@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="icon-toggle-second-demo">
+  <template>
+    <style>
+
+    </style>
+  <br>
+    <input type="text" value="{{first::input}}" > 
+      second element
+    <button>Reset</button>
+    {{first}}
+      {{asdf}}
+
+  </template>
+
+  <script>
+    Polymer({
+      is: "icon-toggle-second-demo",
+      properties: {
+        'first': {
+            type: String,
+            reflectToAttribute: true,
+            value: '["1","2"]'
+        },
+        'second': {
+            type: String,
+            notify: true,
+            readOnly: false,
+            value: "default"
+        }
+      },
+        observers:[
+            'changedEvent(first,0)', 'con()'
+        ],
+        changedEvent: function(changeRecord,index){
+            alert(changeRecord.base+typeof changeRecord.base+ typeof changeRecord);
+        },
+        con: function(){
+            console.log("asdf");
+        }
+
+    });
+  </script>
+</dom-module>
+
+
+<icon-toggle-second-demo></icon-toggle-second-demo>

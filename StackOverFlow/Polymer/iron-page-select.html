@@ -1,0 +1,29 @@
+<base href="https://polygit.org/components/">
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="iron-pages/iron-pages.html">
+<dom-module id="iron-page-select">
+	<template>
+		<style></style>
+		<iron-pages id="pages" selected="0">
+			<div on-tap="_selectNext">one</div>
+			<div on-tap="_selectCustom">two</div>
+			<div>three</div>
+			<div>four</div>
+		</iron-pages>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'iron-page-select',
+		_selectNext:function(){
+			this.$.pages.selectNext();
+		},
+		
+		_selectCustom:function(index){
+			this.$.pages.select(index);
+		}
+	})
+</script>
+
+
+<iron-page-select></iron-page-select>

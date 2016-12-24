@@ -1,0 +1,21 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="remove-child">
+    <template>
+        <style></style>
+        <div class="firstChild">first chilld</div>
+        <p class="secondChild">second chilld</p>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'remove-child',
+        attached: function(){
+            this.removeChild(this.$$('.secondChild'));
+        }
+    })
+</script>
+
+
+<remove-child></remove-child>

@@ -1,0 +1,34 @@
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="view-1">
+    <template>
+        <style></style>
+        <div on-tap="_manipulateArr">click to manipulate</div>
+        <a href="/view2">view2</a>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'view-1',
+        properties:{
+            dynArr: {
+                type: Array,
+                value: function(){
+                    return [1,2,3,4]
+                }
+            },
+            statArr: {
+                type: Array,
+                value: [1,2,3,4]
+            }
+        },
+        _manipulateArr: function(){
+            this.push('dynArr',5);
+            this.push('statArr',5);
+            console.log('dynArr',this.dynArr,'statArr',this.statArr)
+        },
+        attached: function(){
+            console.log('dynArr',this.dynArr,'statArr',this.statArr)
+        }
+    })
+</script>

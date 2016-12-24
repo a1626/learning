@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<dom-module id="dynamic-style">
+  <template>
+    <style>
+      :host{
+        --myfont:10px;
+        
+      }
+      paper-textarea{
+        --paper-input-container-input:{
+        font-size:var(--my-font);
+        }
+
+      }
+    </style>
+    <paper-textarea on-tap="updateStyle"></paper-textarea>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:"dynamic-style",
+    properties:{
+      fontSize:{
+        type:Number,
+        value:10
+      }
+    },
+    updateStyle:function(){
+      var style={'--my-font':this.computeFont()+'px'}
+      this.updateStyles(style);
+    },
+
+    computeFont:function(){
+      return this.fontSize+=4;
+    }
+  })
+</script>

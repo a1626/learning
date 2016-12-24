@@ -1,0 +1,2 @@
+Get-AppXPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.Ins
+tallLocation)\AppXManifest.xml"}

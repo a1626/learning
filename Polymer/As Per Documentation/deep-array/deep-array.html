@@ -1,0 +1,128 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/paper-button/paper-button.html">
+<dom-module id="deep-array">
+  <template>
+    <style></style>
+<!--    <template id='ifCondition' is="dom-if" if="{{testObj.present}}">-->
+      <template id='repeater1' is="dom-repeat" items="{{testObj.arrayItems}}" as="item">
+        <div>{{item.item}}</div>
+        <template id='repeater2' is="dom-repeat" items="{{item.child}}" as="item">
+         {{item}}
+          <div style='padding-left:10px'>{{item.item}}</div>
+        </template>
+      </template>
+<!--    </template>-->
+    <paper-button on-tap="_update">full update</paper-button>
+    <paper-button on-tap="_partialUpdate">partial update</paper-button>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is:'deep-array',
+    properties:{
+      testObj:{
+        type:Object,
+        value:function(){
+          return {present:true,arrayItems:[
+            {
+              item:"firstParentItem",
+              child:[
+                {item:"firstChildItem"},{item:"secondChildItem"},{item:"thirdChildItem"}
+              ]
+            },
+            {
+              item:"secondParentItem",
+              child:[
+                {item:"fourthChildItem"},{item:"fifthChildItem"}
+              ]
+            },{item:"thirdParentItem",
+               child:[
+                 {item:"sixthChildItem"}
+               ]
+              }
+          ]}
+        }
+      }
+    },
+    ready:function(){
+      console.log(this.$.ifCondition);
+
+      console.log(this.$.repeater1);
+      console.log(this.$$['#repeater1']);
+      console.log(document.getElementById('repeater1'));
+      console.log(Polymer.dom(this.$.ifCondition).childNodes);
+      console.log(Polymer.dom(this.$.ifCondition).children);
+      console.log(Polymer.dom(this.root).children);
+      console.log(Polymer.dom(this.root).childNodes);
+      //      console.log(Polymer.dom(this.$.ifCondition).$$['#repeater1']);
+      //      console.log(Polymer.dom(this.$.ifCondition).$.repeater1);
+      console.log(this.$.repeater2);
+    },
+
+    _update:function(){
+      var testData={
+        present:true,
+        arrayItems:[
+          {
+            item:"firstParentItem",
+            child:[
+              {item:"firstChildItem"},{item:"secondChildItem"},{item:"thirdChildItem"}
+            ]
+          },
+          {
+            item:"secondParentItem",
+            child:[
+              {item:"fourthChildItem"},{item:"fifthChildItem"}
+            ]
+          },
+          {item:"thirdParentItem",
+           child:[
+             {item:"sixthChildItem"},{item:"seventhChildItem"}
+           ]
+          },
+          {item:"fourthParentItem"}
+        ]};
+      this.set('testObj',testData);
+    },
+    
+    _partialUpdate:function(){
+      //parent update
+      var fourthParent={item:"fourthParentItem"};
+      this.push('testObj.arrayItems',fourthParent);
+
+      //child update
+      var fourthChild={item:"seventhChildItem"};
+      
+      var temp=this.testObj;
+//      this.testObj=null;
+      this.testObj.arrayItems[0].child.push(fourthChild);
+//      this._setObj(temp);//method 5 not working
+      this.set('testObj',temp);//method 4 not working
+      this.set('testObj.present',true);
+      
+      this.testObj.arrayItems[0].child.push(fourthChild);
+      this.$.repeater1.render();
+      /*var temp=this.testObj;
+      this.testObj=null;
+      this.set('testObj',temp);//method 2 does not work
+      this.testObj=temp;//method 3 does not work
+*/
+      //      this.$.ifCondition.render(); method1 does not work
+    },
+    
+    _setObj:function(value){
+//      this.testObj=value;//method 5 not working
+//      this.set('testObj',value);//method 6 not working
+      var arrayItems=value.arrayItems;
+//      for(var i=0; i<arrayItems.length;i++){
+////        var temp=arrayItems[i];
+//        this.push('testObj.arrayItems',arrayItems[i]);
+//      }
+//      this.set('testObj.arrayItems',arrayItems);
+//      this.set('testObj.arrayItems',arrayItems);
+      console.log(this.testObj);
+    }
+  })
+
+</script>
+<deep-array></deep-array>

@@ -1,0 +1,17 @@
+{
+  "name": "json-push-pull",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "to push and pull data from a json file",
+  "main": "json-push-pull.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

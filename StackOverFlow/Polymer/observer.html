@@ -1,0 +1,36 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<dom-module id="test-element">
+	
+</dom-module>
+<script>
+	Polymer({
+		is:'test-element',
+		properties:{
+			list:{
+				type:Array,
+				value:function(){
+					return ['value']
+				}
+			},
+			prop:{
+				type:Number,
+				value:10
+			}
+		},
+		observers:[
+			'onChange(prop,list.*)'
+		],
+		onChange:function(obj,list){
+			console.log(obj,list);
+		},
+		ready:function(){
+			this.push('list',"value1");
+		},
+		attached:function(){
+//			this.prop=20;
+		}
+	})
+</script>
+
+
+<test-element></test-element>

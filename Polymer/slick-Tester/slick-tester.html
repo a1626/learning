@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<link rel="stylesheet" type="text/css" href="../bower_components/slick-carousel/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../bower_components/slick-carousel/slick/slick-theme.css"/>
+
+<dom-module id="slick-tester">
+	<template>
+		<div class="test">
+			<div>5</div>
+			<div>2</div>
+			<div>4</div>
+			<div><img src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"></img></div>
+			
+		</div>
+	</template>
+</dom-module>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../bower_components/slick-carousel/slick/slick.min.js"></script>
+<script>
+	Polymer({
+		is:"slick-tester"
+	});
+	$(document).ready(function(){
+		$('.test').slick({
+			autoplay:true,
+					autoplaySpeed:200,
+					waitForAnimate:true,
+					lazyload:'ondemand'
+		});
+	});
+</script>

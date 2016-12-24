@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		 <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="stylesheet" type="text/css" href="../bower_components/slick-carousel/slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="../bower_components/slick-carousel/slick/slick-theme.css"/>
+		<link rel="import" href="../slick-tester.html"/>
+	</head>
+	<body>
+		<div class="tester">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div><img src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"></img></div>
+		</div>
+		<div class="tester2">
+			<div>a</div>
+			<div>b</div>
+			<div>c</div>
+		</div>
+		<div class="tester3">
+			<slick-tester></slick-tester>
+		</div>
+		<div class="tester4">
+			<slick-tester></slick-tester>
+		</div>
+		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="../bower_components/slick-carousel/slick/slick.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.tester').slick({
+					dots:false,
+					slidesToShow:1,
+					slidesToScroll:1,
+					autoplay:true,
+					autoplaySpeed:200
+				});
+				$('.tester2').slick({
+					dots:false,
+					slidesToShow:1,
+					slidesToScroll:1,
+					autoplaySpeed:200
+				});
+			});
+		</script>
+	</body>
+</html> 

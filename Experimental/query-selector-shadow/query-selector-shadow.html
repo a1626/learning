@@ -1,0 +1,33 @@
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    window.Polymer={
+        dom='shadow'
+    }
+</script>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="query-selector">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'query-selector',
+        attached:function(){
+            document.querySelector('body').style.background="blue";
+        }
+    })
+</script>
+
+
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+<body>
+    <query-selector></query-selector>
+</body>
+</html>

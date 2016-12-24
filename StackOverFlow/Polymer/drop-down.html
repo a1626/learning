@@ -1,0 +1,32 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="paper-icon-button/paper-icon-button.html">                                                                                    
+<link rel="import" href="iron-icon/iron-icon.html">                                                                                                    
+<link rel="import" href="iron-dropdown/iron-dropdown.html">                                                                                            
+<link rel="import" href="paper-card/paper-card.html">                                                                                                  
+
+<dom-module id="user-dropdown-menu">                                                                                                                                                               
+    <template>                                                                                                                                                             
+        <iron-dropdown id="menu" horizontal-align="right" vertical-offset=35>                                                                                              
+            <div>HELLO</div>                                                                                                                                                
+        </iron-dropdown>                                                                                                                                                   
+        <paper-icon-button src="{{profpic}}" title="NetID: {{netid}}" class="icon" onclick="menu.toggle()" ></paper-icon-button>                                           
+    </template>                                                                                                                                                            
+</dom-module>                                                                                                                                                              
+<script>                                                                                                                                                                   
+    Polymer({                                                                                                                                                              
+        is: 'user-dropdown-menu',                                                                                                                                          
+
+        properties: {                                                                                                                                                      
+            profpic: {                                                                                                                                                     
+                type: String                                                                                                                                               
+            },                                                                                                                                                             
+            netid: {                                                                                                                                                       
+                type: String                                                                                                                                               
+            }                                                                                                                                                              
+        }                                                                                                                                                                  
+    });                                                                                                                                                                    
+</script>  
+
+
+<user-dropdown-menu></user-dropdown-menu>

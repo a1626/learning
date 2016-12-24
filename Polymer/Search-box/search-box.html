@@ -1,0 +1,112 @@
+<link rel="import" href="bower_components/polymer/polymer.html"/>
+<link rel="import" href="bower_components/paper-input/paper-input.html"/>
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html"/>
+<link rel="import" href="bower_components/iron-icons/iron-icons.html"/>
+<link rel="import" href="bower_components/iron-icon/iron-icon.html"/>
+<link rel="import" href="bower_components/paper-menu/paper-menu.html"/>
+<link rel="import" href="bower_components/paper-item/paper-item.html"/>
+<link rel="import" href="bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"/>
+<dom-module id="search-box">
+	<template>
+		<style>
+			paper-input{
+				background-color:var(--search-box-background,lightgrey);
+				color:var(--search-box-color,blue);
+				border: 1px solid;
+			}
+			iron-icon{
+				--iron-icon-fill-color:var(--search-box-icon-color,grey);
+				cursor:pointer;
+			}
+		</style>
+		<iron-ajax
+		auto
+		url="data.json"
+		params={"alt":"json", "q":"chrome"}
+		handle-as="json"
+		last-response={{response}}
+		debounce-duration=300></iron-ajax>
+		
+		<paper-input id="input" type="search" 
+		label="{{label}}" 
+		placeholder="{{placeholder}}" 
+		value={{value}}
+		on-input="_getList"
+		on-keydown='_keydown'>
+			<iron-icon icon="icons:search" suffix><iron-icon>	
+		</paper-input>
+		
+		<template is="dom-if" if="{{listValue}}">
+			<paper-menu id="menu" selected={{selected}}>
+				<template is="dom-repeat" items={{listValue}}>
+					<paper-item on-keydown='_keydown'>{{item}}</paper-item>
+				</template>
+			</paper-menu>
+		</template>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:"search-box",
+		value:String,
+		response:Object,
+		listValue:Array,
+		selected:{
+			type:Number,
+		},
+		behaviors: [
+			Polymer.IronA11yKeysBehavior
+		],
+		properties:{
+			label:{
+				type:String,
+				value:"search-box"
+			},
+			placeholder:{
+				type:String,
+			},
+		},
+		keyBindings:{
+			'down':'_onDownKey',
+			'up':'_upKeyPressed',
+		},
+		_getList:function(){
+			console.log(this.value);
+			console.log(this.response);
+			console.log(this.response[this.value]);
+			this.listValue=this.response[this.value];
+			console.log(this.listValue);
+			//this.value="";
+		},
+		_keydown:function(e){
+			console.log(e);
+			var menu=document.getElementById('menu');
+			if(e.which==13 ){
+				console.log(document.getElementById('menu').selected);
+			}
+			/*else if(e.which==40 && (menu.indexOf(menu.focusedItem))==(menu.items.length-1)){
+				document.getElementById('menu').blur();
+				this.$.input.focus();
+			}*/
+		},
+		_onDownKey:function(e){
+			console.log("here");
+			var menu=document.getElementById('menu');
+			menu.selected=0;
+			menu.tabindex=0;
+			menu.focus();
+		},
+		_upKeyPressed:function(e){
+			var menu=document.getElementById('menu');
+			var length=menu.items.length;
+			if(length>0){
+				document.getElementById('menu').selected=length-1;
+				document.getElementById('menu').tabindex=length-1;
+				document.getElementById('menu').focus();
+			}
+		},
+		/*_onDownKey:function(e){
+			console.log('here');
+		},*/
+		});
+</script>

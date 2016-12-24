@@ -1,0 +1,55 @@
+<!--Does not work as preventInvalid input works only with allowed patterns-->
+
+
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link href="../bower_components/polymer/polymer.html" rel="import">
+
+<link href="../bower_components/paper-button/paper-button.html" rel="import">
+<link href="../bower_components/paper-input/all-imports.html" rel="import">
+
+
+<dom-module id="my-test">
+    <template>
+      
+      
+    <paper-input 
+    		id='input'
+    
+         label="max" 
+         type="number" 
+         value="{{year_max}}" 
+         min="0" 
+         max="255" 
+         editable
+         pattern=[0-5]
+         invalid={{invalid}}
+         auto-validate
+         
+         prevent-invalid-input
+         on-change='inputChanged'
+         error-message="Error msg"
+    ></paper-input>
+    
+    <br>
+    year_max: {{year_max}}
+    <br>
+    invalid:  {{invalid}}
+
+    </template>
+    <script>
+        Polymer({
+            is: 'my-test',
+            properties: {
+            },
+					inputChanged:function(){
+						this.$.input.validate();
+					}
+        });
+    </script>
+    
+    
+</dom-module>
+
+
+
+<my-test></my-test>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>array</title>
+        <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="import" href="page1.html">
+        <link rel="import" href="page2.html">
+        <link rel="import" href="https://polygit.org/components/app-route/app-route.html">
+        <link rel="import" href="https://polygit.org/components/app-route/app-location.html">
+        <link rel="import" href="https://polygit.org/components/iron-pages/iron-pages.html">
+    </head>
+    <body>
+        <template is="dom-bind">
+            <app-location route="{{route}}"></app-location>
+            <app-route
+                   route="{{route}}"
+                   pattern="/:page"
+                   data="{{data}}"
+                   tail="{{tail}}">
+            </app-route>
+            <iron-pages selected="[[data.page]]" attr-for-selected="name">
+                <view-1 name="view1"></view-1>
+                <view-2 name="view2"></view-2>
+            </iron-pages>
+        </template>
+        <script>
+            (function (document){
+                var bind = document.querySelector('template');
+                bind.data = bind.data || {};
+                bind.data.page='view1';
+            })(document);
+        </script>
+    </body>
+</html>

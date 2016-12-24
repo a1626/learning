@@ -1,0 +1,21 @@
+{
+  "name": "imperative-declarative",
+  "description": "keeping script tag(imperative), call to Polyer({..}) and dom-module tag(declarative) part in different files, also includes polymer logs",
+  "main": "dec-part.html",
+  "authors": [
+    "abhishek"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0"
+  }
+}

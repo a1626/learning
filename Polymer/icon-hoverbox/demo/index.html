@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Icon-hoverbox Demo</title>
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<script>window.Polymer={lazyRegister:"max",useNativeCSSProperties:true}</script>
+    <link rel="import" href="../icon-hoverbox.html">
+    <style>
+      .container{
+        left:300px;
+        position: absolute;
+      }
+    </style>   
+  </head>
+  <body>
+    <div class="container">
+      <icon-hoverbox icon="icons:alarm" box-position='end' box-direction="left">
+        <div id="label">Test label</div>
+        <div>
+          Paths create complex shapes by combining multiple straight lines or curved lines. Complex shapes composed only of straight lines can be created as polylines. While polylines and paths can create similar-looking shapes, polylines require a lot of small straight lines to simulate curves and don't scale well to larger sizes. A good understanding of paths is important when drawing SVGs. While creating complex paths using an XML editor or text editor isn't recommended, understanding how they work will allow you to identify and repair display issues in SVGs.
+        </div>
+      </icon-hoverbox>
+    </div>
+  </body>
+</html>

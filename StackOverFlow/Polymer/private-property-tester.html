@@ -1,0 +1,75 @@
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<dom-module id="has-private">
+	<template>{{newProp}}</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'has-private',
+		properties:{
+//			_private:'privateMember',
+			_private:{
+				type:String,
+				value:'privateMember',
+//				observer:'_privateChanged'
+			},
+			inSide:{
+				type:String,
+				value:'ousidePropertiesObject',
+				reflectToAttribute:true,
+				observer: '_insideChanged'
+			}
+		},
+		listeners:{
+			'_private-changed':'_privateChanged'
+		},
+		outSide:{
+			type:String,
+			value:'ousidePropertiesObject',
+			reflectToAttribute:true,
+			observer:'_changed'
+		},
+
+		_changed:function(newVal){
+			alert("New value of outSide is: "+newVal);
+		},
+		
+		_privateChanged:function(newVal){
+			alert("New value of private is: "+newVal);
+		},
+
+		_insideChanged:function(newVal){
+			alert("New value of inSide is: "+newVal);
+		},
+
+		attached: function(){
+			console.log("value of outSide",this.outSide);
+			alert("From internal element \n outside: "+this.outSide+" inside: "+this.inSide);
+			alert("New Prop"+this.newProp);
+			this.undeclaredProperty="i'm not declared anywhere in the code";
+		}
+	})
+</script>
+
+
+<dom-module id="access-private">
+	<template>
+		<has-private id="private" out-side="doesn't matter" in-side="doesn't matter" new-prop="hello"></has-private>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'access-private',
+		attached:function(){
+
+//			this.$.private._private="i work";
+			this.$.private.outSide="i work";
+			this.$.private.inSide="i work";
+			alert("value of has-private element's private property in access private is: "+this.$.private._private);
+			alert("value of property outside propeties object is: " + this.$.private.outSide);
+			alert("value of undeclared property is: " + this.$.private.undeclaredProperty);
+		}
+	})
+</script>
+
+
+<access-private></access-private

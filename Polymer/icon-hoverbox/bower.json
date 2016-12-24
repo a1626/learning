@@ -1,0 +1,29 @@
+{
+  "name": "icon-hoverbox",
+  "authors": [
+    "a1626 <gupta.abhishek1804@gmail.com>"
+  ],
+  "description": "A box that appears on hover over a icon. box can be placed on either side of the icon",
+  "main": "icon-hoverbox.html",
+  "keywords": [
+    "icon",
+    "hover",
+    "header"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0",
+    "iron-icon": "^1.0.8",
+    "iron-icons": "^1.1.3",
+    "paper-material": "^1.0.6",
+    "iron-resizable-behavior": "^1.0.3"
+  }
+}

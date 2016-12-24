@@ -1,0 +1,24 @@
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+	window.Polymer={
+		dom:'shadow'
+	}
+</script>
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<dom-module id="deep-hash">
+	<template>
+		<style></style>
+		<paper-input id="input"></paper-input>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'deep-hash',
+		attached:function(){
+			alert(this.$.input.$.input);
+		}
+	})
+</script>
+
+
+<deep-hash></deep-hash>
