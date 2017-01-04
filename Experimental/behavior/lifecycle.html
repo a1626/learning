@@ -1,0 +1,30 @@
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<link rel="import" href="lifecycleBehavior.html">
+<dom-module id="behavior-lifecycle">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "behavior-lifecycle",
+        properties: {
+            myProp: {
+                type: String,
+                value: "Hello"
+            }
+        },
+        behaviors: getBehavior(),
+        beforeRegister: function(){
+            debugger;
+        }
+    });
+    function getBehavior(){
+        var myArr = [myBehavior];
+        document.addEventListener('add-behavior',function(e){
+            debugger;
+            myArr.push(e.detail);
+        })
+        return myArr;
+    }
+</script>

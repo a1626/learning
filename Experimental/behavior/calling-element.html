@@ -1,0 +1,32 @@
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    window.Polymer = {
+        lazyRegister:"max",
+        useNativeCSSProperties:true
+    };
+</script>
+<link rel="import" href="lifecycle.html">
+<dom-module id="calling-element">
+    <template>
+        <style></style>
+        <behavior-lifecycle class="myClass"></behavior-lifecycle>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "calling-element",
+        beforeRegister: function(){
+            debugger;
+            var event = new CustomEvent('add-behavior',{detail:{func: function(){console.log(this.myProp,"!")}}});
+            document.dispatchEvent(event);
+        },
+        created: function(){
+            debugger;
+        },
+        ready: function(){
+            debugger;
+            this.$$('behavior-lifecycle').behaviors.push({func:function(){console.log(this.myProp,"doe")}})
+        },
+    })
+</script>
+<calling-element></calling-element>
