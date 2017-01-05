@@ -1,0 +1,32 @@
+<!--
+    The reason behind needing function for array/object is during configuring properties Polymer will refer to the html file of element
+    and assing it value to instance so if we give value to obj without function it will always have refence to one created by object definition.
+-->
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="test-element">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'test-element',
+        properties: {
+            first: "first",
+            second: {
+                type: String,
+                value: "second"
+            },
+            third: {
+                type: Object,
+                value: function(){
+                    return {"third":"third"}
+                }
+            }
+        }
+    })
+</script>
+<test-element></test-element>
+<test-element></test-element>
