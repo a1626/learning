@@ -1,0 +1,26 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="test-elem">
+    <template>
+        <style>
+            div {
+                height: 50px;
+                width: 50px;
+                border: 1px solid;
+            }
+        </style>
+        <div on-tap="_clicked"></div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'test-elem',
+        _clicked: function(e) {
+        debugger;
+    }
+    })
+</script>
+
+
+<test-elem></test-elem>

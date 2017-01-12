@@ -1,0 +1,42 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<!--
+    It's simple json.stringify for object.
+    Type is only used for deserialization purpose.
+-->
+<dom-module id="serial-ize">
+    <template>
+        <style></style>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:'serial-ize',
+        properties: {
+            str: {
+                value: "string",
+                reflectToAttribute: true
+            },
+            num: {
+                value: 10,
+                reflectToAttribute: true
+            },
+            obj: {
+                value: function(){
+                    return {"key": "value"}
+                },
+                reflectToAttribute: true
+            },
+            arr: {
+                value: function(){
+                    return ["key", "value"]
+                },
+                reflectToAttribute: true
+            },
+        }
+    })
+</script>
+
+
+<serial-ize></serial-ize>

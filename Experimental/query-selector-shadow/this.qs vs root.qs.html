@@ -1,0 +1,32 @@
+<base href="https://polygit.org/components/">
+<script>
+    window.Polymer={
+        dom:'shadow'
+    };
+</script>
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="test-element">
+    <template>
+        <style></style>
+        <template is="dom-if">
+            <div class="false-div"></div>
+        </template>
+        <div class="my-div"></div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'test-element',
+        attached: function() {
+            alert('direct usage '+this.querySelector('.my-div')); //For shadow dom this returns null
+            alert('checking shadow root '+Polymer.dom(this.root).querySelector('.my-div'));
+            
+            alert('direct usage '+this.querySelector('.false-div')); //no issue with dom-if even with shady dom
+            alert('checking shadow root '+Polymer.dom(this.root).querySelector('.false-div'));
+        }
+    })
+</script>
+
+
+<test-element></test-element>
