@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="main.css">
-<base href="https://polygit.org/components/">
-<link rel="import" href="polymer/polymer.html">
+<!--<link rel="stylesheet" href="main.css">-->
+<link rel="import" href="https://polygit.org//polymer+1.7.1/components/polymer/polymer.html">
 <dom-module id="my-element">
     <template>
-        <style></style>
+<!--       This should be inside the template for it to work-->
+        <link rel="stylesheet" href="main.css"> 
         <div class="myclass">my red data</div>
     </template>
 </dom-module>

@@ -1,0 +1,44 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="sorting-element">
+    <template>
+        <style></style>
+        <template is="dom-repeat" items="{{items}}" as="item" sort="[[_sort]]">
+            {{item.name}}
+        </template>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'sorting-element',
+        properties:{
+            items:{
+                type: Array,
+                value: function() {
+                    return [
+                        {
+                            value: 1,
+                            name: "one"
+                        },{
+                            value: 2,
+                            name: "two"
+                        },{
+                            value: 3,
+                            name: "three"
+                        },{
+                            value: 4,
+                            name: "four"
+                        }
+                    ]
+                }
+            }
+        },
+        _sort: function(a,b) {
+            console.log(a,b);
+            return a.name > b.name ? 1 : -1;
+        }
+    })
+</script>
+
+<sorting-element></sorting-element>
