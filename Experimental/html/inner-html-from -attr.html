@@ -1,0 +1,28 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="inner-html">
+    <template>
+        <style></style>
+        <!-- This will work only in case of bindings as that is when Polymer converts attribute into property. It has same disadvantages as js innerHTML -->
+        <span id="inner" inner-h-t-m-l="{{hello}}"></span>
+        <div on-tap="_discover">Tap me</div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "inner-html",
+        properties: {
+          hello: {
+            type: String,
+            value: "Hi!"
+          }  
+        },
+        _discover: function() {
+            alert(this.$.inner.innerHTML);
+        }
+    })
+</script>
+
+
+<inner-html></inner-html>

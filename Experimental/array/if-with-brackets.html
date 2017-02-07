@@ -1,0 +1,57 @@
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="re-peat">
+    <template>
+        <style></style>
+        <!-- works -->
+        <template is="dom-if" if="{{items.0.key}}">
+            Dot works
+            <br>
+        </template>
+        <!-- shows true -->
+        <template is="dom-if" if="{{items[0].key}}">
+            direct brackets works
+            <br>
+        </template>
+        <!-- shows true -->
+        <template is="dom-if" if="{{items['0'].key}}">
+            brackets with quotes works
+            <br>
+        </template>
+
+        <!-- works -->
+        <template is="dom-if" if="{{!items.0.key}}">
+            Dot does not works
+            <br>
+        </template>
+        <!-- shows true -->
+        <template is="dom-if" if="{{!items[0].key}}">
+            direct brackets does not works
+            <br>
+        </template>
+        <!-- shows true -->
+        <template is="dom-if" if="{{!items['0'].key}}">
+            brackets with quotes does not works
+            <br>
+        </template>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:"re-peat",
+        properties:{
+            items:{
+                type:Array,
+                value: function() {
+                    return [{
+                        "key": "value" 
+                    }]
+                }
+            }
+        }
+    })
+</script>
+
+
+<re-peat></re-peat>
