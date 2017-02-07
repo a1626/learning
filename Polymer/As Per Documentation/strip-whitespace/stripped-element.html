@@ -1,18 +1,19 @@
 <dom-module id="stripped-whitespace">
-  <template strip-whitespace>
-    <div> This is whitespace stripped div </div>
-    <div>  </div>
-    <template is="dom-if" if="true">
+    <template strip-whitespace>
+        <div> This is whitespace stripped div </div>
         <div>  </div>
+        <!-- With Polymer 1.8 strip-whitespace is not required in child templates. -->
+        <template is="dom-if" if="true">
+            <div>  </div>
+        </template>
+
+        <template is="dom-if" if="true" strip-whitespace>
+            <div>  </div>
+        </template>
     </template>
-       
-    <template is="dom-if" if="true" strip-whitespace>
-        <div>  </div>
-    </template>
-  </template>
 </dom-module>
 <script>
-  Polymer({
-    is:"stripped-whitespace"
-  })
+    Polymer({
+        is:"stripped-whitespace"
+    })
 </script>

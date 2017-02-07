@@ -1,0 +1,26 @@
+<!--
+Try and access parent from child in case of shadow dom. 
+Use case: when child and parent are in different elements
+-->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    window.Polymer = {
+        dom: 'shadow'
+    }
+</script>
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<link rel="import" href="child.html">
+<dom-module id="parent-element">
+    <template>
+        <style></style>
+        <child-element></child-element>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is:"parent-element"
+    })
+</script>
+
+
+<parent-element></parent-element>
