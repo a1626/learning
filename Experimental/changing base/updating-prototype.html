@@ -1,0 +1,38 @@
+<!--
+Polymer.telemetry.registrations contains prototype of registered elements.
+Making a change here to element will change element's prototype and hence it's definition everywhere.
+-->
+<base href="https://polygit.org/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="paper-card/paper-card.html">
+<dom-module id="updating-prototype">
+    <template>
+        <style>
+            :host > * {
+                cursor: pointer;
+            }
+        </style>
+        <paper-card id="card" on-tap="_showDefinition">Tap me to check definition of _isHidden</paper-card>
+        <div on-tap="_changeProto">Change _isHidden function of paper-card</div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "updating-prototype",
+        _showDefinition: function() {
+            alert("Definition of _isHidden: "+this.$.card._isHidden);
+        },
+        _changeProto: function() {
+            var card = Polymer.telemetry.registrations.find(function(item){ 
+                return item.is === 'paper-card'
+            });
+            card._isHidden = function(){
+                console.log("Yeah!!!! you have successfully changed my proto");
+            };
+        }
+    })
+</script>
+
+
+<updating-prototype></updating-prototype>

@@ -1,0 +1,46 @@
+<base href="https://polygit.org/polymer+v1.8.0/components/">
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+<script>
+    //    Setting this to true will suppress all dom change notifications from repeat, bind and if. 
+    Polymer= {
+        suppressTemplateNotifications: true
+    }
+</script>
+<link rel="import" href="polymer/polymer.html">
+<dom-module id="suppress-tempalte">
+    <template>
+        <style></style>
+        <template is="dom-if" if="true" id="tempIf">
+            Hi!
+        </template>
+        <!-- notifyDomChange will inform Polymer to send dom-change notifications for this template even if suppressTemplate is true -->
+        <template is="dom-repeat" items="{{items}}" as="item" id="tempRep" notify-dom-change>
+            {{item}}
+        </template>
+        <div on-tap="changeData">Tap me</div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "suppress-tempalte",
+        listeners: {'dom-change': '_domChanged'},
+        properties: {
+            items: {
+                type: Array,
+                value: function() {
+                    return [1,2,3,4,5];
+                }
+            }
+        },
+        changeData: function() {
+            this.$.tempIf.if= !this.$.tempIf.if;
+            this.$.tempRep.items= [Math.random(),Math.random(),Math.random(),Math.random(),Math.random()];
+        },
+        _domChanged: function(e) {
+            alert("Dom Changed "+e.target.id);
+        }
+    })
+</script>
+
+
+<suppress-tempalte></suppress-tempalte>
