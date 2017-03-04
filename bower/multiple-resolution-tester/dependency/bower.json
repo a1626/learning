@@ -1,0 +1,30 @@
+{
+  "name": "dependency",
+  "homepage": "https://github.com/a1626/learning",
+  "description": "this is a dependent project and has a resloution added in it's bpwer.json",
+  "main": "",
+  "keywords": [
+    "bower",
+    "resolution"
+  ],
+  "authors": [
+    "a1626"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "polymer": "1.5.0",
+    "webcomponentsjs": "^0.7.20"
+  },
+  "dependencies": {
+    "polymer": "1.5.0",
+    "paper-card": "^0.1.5"
+  }
+}
