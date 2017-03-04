@@ -1,7 +1,2 @@
 {
-        "registry": "http://10.188.25.62:9004",
-        "timeout": 300000,
-        "proxy":"http://EV_Foundation:Infy123%2B@indblrb06intpxy02.ad.infosys.com:80",
-        "https-proxy":"http://EV_Foundation:Infy123%2B@indblrb06intpxy02.ad.infosys.com:80",
-        "no-proxy":"10.188.25.62:9004,10.73.53.167"
 }

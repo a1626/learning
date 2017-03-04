@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="import" href="./bower_components/paper-elements/paper-elements.html">
+        <link rel="import" href="./bower_components/iron-elements/iron-elements.html">
+        <link rel="import" href="./bower_components/app-elements/app-elements.html">
+        <link rel="import" href="./bower_components/gold-elements/gold-elements.html">
+        <link rel="import" href="./bower_components/platinum-elements/platinum-elements.html">
+        <link rel="import" href="./bower_components/vaadin-core-elements/vaadin-core-elements.html">
+        <link rel="import" href="./bower_components/google-web-components/google-web-components.html">
+    </head>
+    <body>
+        <script>
+            console.log("Starting Time", Date.now());
+//            finding customElement
+            var customElement = Polymer.telemetry.registrations.find(function(element) {
+                return element.is === "firebase-query";
+            });
+
+//            new method 1
+            customElement.debounce = function(func, wait, immediate) {
+                var timeout;
+                return function() {
+                    var context = this, args = arguments;
+                    var later = function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+                };
+            };
+
+//            new method 2
+            customElement.poll = function(fn, timeout, interval) {
+                var endTime = Number(new Date()) + (timeout || 2000);
+                interval = interval || 100;
+
+                var checkCondition = function(resolve, reject) {
+                    // If the condition is met, we're done! 
+                    var result = fn();
+                    if(result) {
+                        resolve(result);
+                    }
+                    // If the condition isn't met but the timeout hasn't elapsed, go again
+                    else if (Number(new Date()) < endTime) {
+                        setTimeout(checkCondition, interval, resolve, reject);
+                    }
+                    // Didn't match and too much time, reject!
+                    else {
+                        reject(new Error('timed out for ' + fn + ': ' + arguments));
+                    }
+                };
+
+                return new Promise(checkCondition);
+            };
+
+//            new method 3
+            customElement.once = function(fn, context) { 
+                var result;
+
+                return function() { 
+                    if(fn) {
+                        result = fn.apply(context || this, arguments);
+                        fn = null;
+                    }
+
+                    return result;
+                };
+            }
+
+//            new method 4
+            customElement.getAbsoluteUrl = (function() {
+                var a;
+
+                return function(url) {
+                    if(!a) a = document.createElement('a');
+                    a.href = url;
+
+                    return a.href;
+                };
+            })();
+
+            console.log("Finishing Time", Date.now());
+        </script>
+    </body>
+</html>
