@@ -10,3 +10,4 @@ This project tests how much time does overwriting a prototype of plymer element 
 
 #Test Reults
 - It takes around __11ms__
+- Most of the time is taken by _find_ function
