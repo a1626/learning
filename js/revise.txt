@@ -1,0 +1,7 @@
+
+hoisting
+call vs bind vs apply
+lexical scope
+closure
+temporal dead zone
+node thread pool and eventLoop
