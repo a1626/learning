@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script>
+        window.Polymer= {
+            dom: 'shadow'
+        }
+    </script>
+    <link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+</head>
+<body>
+    <dom-module id="test-element">
+        <template>
+            <style></style>
+<!--
+            <template is="dom-if" if="true">
+                <span id="test"></span>
+            </template>
+-->
+<!--
+            <template is="dom-if" if="false">
+                <p id="test"></p>
+            </template>
+-->
+            <template is="dom-if" if="false" restamp>
+                <p id="test"></p>
+            </template>
+            <div id="test"></div>
+            <input type="text" id="test">
+        </template>
+    </dom-module>
+    <script>
+        Polymer({
+            is:"test-element",
+            attached: function() {
+                console.log(this.$$('#test'));
+                console.log(this.$.test);
+            }
+        })
+    </script>
+    <test-element></test-element>
+</body>
+</html>
