@@ -1,0 +1,1 @@
+This project explores features, options and configurations available in [polymer-build](https://github.com/Polymer/polymer-build), which polymer-cli uses internally for bundling code and building strategies.
