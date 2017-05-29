@@ -1,7 +1,9 @@
 
+prototype chaining
 hoisting
 call vs bind vs apply
 lexical scope
 closure
 temporal dead zone
 node thread pool and eventLoop
+https://stackoverflow.com/questions/27329444/why-a-is-undefined-while-b-is-3-in-var-a-b-3
