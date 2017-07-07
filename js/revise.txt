@@ -6,5 +6,7 @@ lexical scope
 closure
 temporal dead zone
 node thread pool and eventLoop
+shortcut evaluation
+https://stackoverflow.com/questions/44964246/more-precedence-confusion#44964306
 https://stackoverflow.com/questions/27329444/why-a-is-undefined-while-b-is-3-in-var-a-b-3
 https://stackoverflow.com/questions/33869145/is-it-possible-for-global-execution-context-to-pop-off-the-execution-stack
