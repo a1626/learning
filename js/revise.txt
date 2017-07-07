@@ -7,6 +7,21 @@ closure
 temporal dead zone
 node thread pool and eventLoop
 shortcut evaluation
-https://stackoverflow.com/questions/44964246/more-precedence-confusion#44964306
+
+semi-colon insertion issue eg
+function(){
+	return
+	{
+		stat: true
+	};
+}
+will return undefined
+
+parseInt("10x") returns 10 as parseInt stops at first non-digit occurance.
+parseInt("08") (starting with 0) uses base 8 (use praseInt("08", 10)).
+0.1 + 0.2 is not equal to 0.3 this is because of IEEE 754 (https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+Function expression are not hoisted (https://www.quora.com/Why-are-function-expressions-not-hoisted-in-javascript)
+
+https://stackoverflow.com/questions/44964246/why-is-and-evaluated-before-equal#44964306
 https://stackoverflow.com/questions/27329444/why-a-is-undefined-while-b-is-3-in-var-a-b-3
 https://stackoverflow.com/questions/33869145/is-it-possible-for-global-execution-context-to-pop-off-the-execution-stack
