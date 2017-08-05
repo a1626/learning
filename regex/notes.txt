@@ -1,0 +1,18 @@
+- \d means match any digit
+- \D means match any non-digit character
+- \w means match any alphanumeric (including _). It is equivalent to [A-Za-z0-9_]
+- \W means match any non-alphanumeric character
+- \s means any whitespace (spacebar, \t, \n, \r (return carriage)).
+- \S means any non-whitespace character.
+- . is wild card
+- [abc] means should contain a or b or c
+- [^abc] means match any charater except a, b or c. eg. abcd will match ("abcd".match(/[^abc]/) will return d in devTool) but abc will not match.
+Note: /.../ is way in js to define a regex.
+- curly braces are use to represent repetotion. .{3} will mean atleast 3 characters, [we]{2,4} will mean 2-4 of w or e.
+Note: repition is not supported by all the engines.
+- *(kleene star) and +(kleene plus) represents 0 or more and 1 or more of the character it follows respectively. They always follows a character group.
+- ? is for optional character. Character preceeding question mark is optional.
+- ^ (outside of square brackets) represents start of line and $ represents end of line.
+- () can be used to capture data.
+- nested () can be used to extract layers of data. eg. ^([a-zA-Z]{3}\s(\d+))$ wil return Jan 1987 and 1987 for input Jan 1987.
+- | logical or.
