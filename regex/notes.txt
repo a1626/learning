@@ -16,3 +16,4 @@ Note: repition is not supported by all the engines.
 - () can be used to capture data.
 - nested () can be used to extract layers of data. eg. ^([a-zA-Z]{3}\s(\d+))$ wil return Jan 1987 and 1987 for input Jan 1987.
 - | logical or.
+- https://stackoverflow.com/questions/2301285/what-do-lazy-and-greedy-mean-in-the-context-of-regular-expressions
