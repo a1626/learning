@@ -53,6 +53,35 @@ var config = [{
          }
       ]
    }
+},
+
+
+{
+   name: 'clockWithState',
+   entry: './clockWithState/clock.jsx',
+
+   output: {
+      path:'/clockWithState/',
+      filename: 'clock.jsx',
+   },
+
+   devServer: {
+      inline: true,
+      port: 8080
+   },
+
+   module: {
+      loaders: [
+         {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+             query: {
+               presets: ['es2015', 'react']
+            },
+            loader: 'babel-loader'
+         }
+      ]
+   }
 }]
 
 module.exports = config;
