@@ -31,3 +31,5 @@ https://stackoverflow.com/questions/38662231/evaluates-to-true
 https://github.com/denysdovhan/wtfjs#readme
 
 https://github.com/denysdovhan/wtfjs#readme
+
+Event Loop: https://www.youtube.com/watch?v=cCOL7MC4Pl0
