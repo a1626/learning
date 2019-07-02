@@ -33,3 +33,7 @@ https://github.com/denysdovhan/wtfjs#readme
 https://github.com/denysdovhan/wtfjs#readme
 
 Event Loop: https://www.youtube.com/watch?v=cCOL7MC4Pl0
+
+Inside a funciton value of this depends on in which scope is function getting executed.
+
+a.bind(b).bind(c) will bind the function b.
