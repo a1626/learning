@@ -37,3 +37,41 @@ Event Loop: https://www.youtube.com/watch?v=cCOL7MC4Pl0
 Inside a funciton value of this depends on in which scope is function getting executed.
 
 a.bind(b).bind(c) will bind the function b.
+
+bind implementation:
+Function.prototype.myBind = function(...args) {
+    const that = this;
+    const arg = args.slice(1)
+    return function(...args2) {
+        return that.apply(args[0], [...arg, ...args2])
+    }
+}
+
+Args passed  to bind cannot be overwritten. You can use this for curry eg:
+multiply.bind(this, x)
+
+by default arguments is not an array it's an object. Convert it to array by Array.prototype.slice.call(arguements)
+
+https://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work
+
+Curry implementation:
+
+var makeCurry = function(fn){
+    if(typeof fn!=='function'){
+        throw Error('No function provided');
+    }
+
+    var slice = [].slice;
+    return function curriedFn(){
+      var args = slice.call(arguments);
+      if(args.length < fn.length){
+        return function(){
+          return curriedFn.apply(null, args.concat( slice.call(arguments) ));
+        };
+      }
+
+      return fn.apply(null, args);
+    };
+};
+
+prototype vs __proto: https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
