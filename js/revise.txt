@@ -75,3 +75,5 @@ var makeCurry = function(fn){
 };
 
 prototype vs __proto: https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
+
+A scope is created based on function/constructor. So when you use an arrow function, the scope is associated of parent function and not object
