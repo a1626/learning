@@ -11,8 +11,8 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-alpha.11",
-    "@vue/cli-service": "^3.0.0-alpha.11",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
     "vue-template-compiler": "^2.5.13"
   },
   "browserslist": [
